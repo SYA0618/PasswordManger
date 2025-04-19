@@ -1,0 +1,14 @@
+# Go build artifacts
+*.exe
+*.out
+*.test
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
