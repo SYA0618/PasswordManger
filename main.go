@@ -1,13 +1,19 @@
 package main
 
 import (
+	"log"
 	"passwordManger/cmd"
+	"passwordManger/internal/storage"
 	"passwordManger/internal/utils"
 
 	"github.com/spf13/cobra"
 )
 
 func main() {
+	if err := storage.InitDB(); err != nil {
+		log.Fatal("❌ Failed to initialize database:", err)
+	}
+	defer storage.Close()
 	rootCmd := &cobra.Command{
 		Use:   "passmanger",
 		Short: "A simple CLI password manager",
